@@ -54,4 +54,16 @@ app.put("/characters", (req, res)=>{
     res.send(charactersList)
 })
 
+app.delete("/characters", (req,res)=>{
+    const idChar = req.headers.get("id")
+    let newCharList = []
+    for (const char of charactersList) {
+        if (char.id != idChar) {
+            newCharList.push(char)
+        }
+    }
+    charactersList = newCharList
+    res.send(charactersList)
+})
+
 app.listen(8080)

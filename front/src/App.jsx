@@ -2,6 +2,11 @@ import { useState } from 'react'
 import './App.css'
 import { useEffect } from 'react'
 import axios from 'axios';
+import Tab from './components/Tab';
+import AddForm from './components/AddFrom'
+import AlertDel from './components/AlertDel';
+
+
 
 function App() {
   const [items, setItems] = useState([])
@@ -14,11 +19,10 @@ function App() {
   },[])
 
   return (
-    <>
-      {items.map((item, index) => (
-        <div key={index}>{item.name}</div>
-      ))}
-    </>
+    <div className='bg-blue-200 h-screen w-screen p-20 m-auto flex justify-center items-center flex-col'>
+      <Tab characters={items}/>
+      <AddForm/>
+    </div>
   )
 }
 
