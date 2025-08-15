@@ -55,10 +55,10 @@ app.put("/characters", (req, res)=>{
 })
 
 app.delete("/characters", (req,res)=>{
-    const idChar = req.headers.get("id")
+    const idChar = req.headers["id"]
     let newCharList = []
     for (const char of charactersList) {
-        if (char.id != idChar) {
+        if (char.id != Number(idChar)) {
             newCharList.push(char)
         }
     }

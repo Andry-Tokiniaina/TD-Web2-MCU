@@ -6,21 +6,21 @@ import Tab from './components/Tab';
 import AddForm from './components/AddFrom'
 import AlertDel from './components/AlertDel';
 
-
-
 function App() {
   const [items, setItems] = useState([])
+  const [charToDelete, setCharToDelete] = useState()
 
   useEffect(()=>{
     axios.get("http://localhost:8080/characters")
       .then(res => {
         setItems(res.data)
       })
-  },[])
+  },[charToDelete])
 
   return (
     <div className='bg-blue-200 h-screen w-screen p-20 m-auto flex justify-center items-center flex-col'>
-      <Tab characters={items}/>
+      <Tab characters={items} takeCharToDelete={setCharToDelete}/>
+      {charToDelete && <AlertDel char={charToDelete} removeCharToDelete={setCharToDelete}/>}
       <AddForm/>
     </div>
   )
