@@ -21,7 +21,7 @@ function App() {
     <div className='bg-blue-200 h-screen w-screen p-20 m-auto flex justify-center items-center flex-col'>
       <Tab characters={items} takeCharToDelete={setCharToDelete}/>
       {charToDelete && <AlertDel char={charToDelete} removeCharToDelete={setCharToDelete}/>}
-      <AddForm/>
+      <AddForm update={setItems}/>
     </div>
   )
 }

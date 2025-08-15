@@ -8,7 +8,8 @@ function put(id, name, realName, universe) {
     'universe' : universe}]
     }
     
-  axios.put("http://localhost:8080/characters", charData)
+  return axios.put("http://localhost:8080/characters", charData)
+    .then(res => res.data)
 }
 
 export default put;
