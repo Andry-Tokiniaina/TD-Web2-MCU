@@ -2,9 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express, { json } from 'express';
+import cors from 'cors';
 
 const app = express()
 
+app.use(cors())
 app.use(json())
 
 const __filename = fileURLToPath(import.meta.url);
