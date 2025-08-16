@@ -74,6 +74,21 @@ app.put("/characters", (req, res)=>{
     if (charReq) {
         let newCharList = []
         for(let char of charReq){
+            if (!char.id) {
+                char.id = charactersList.length ? Math.max(...charactersList.map(c => c.id)) + 1 : 1;
+            }
+            if (char.id < 0) {
+                res.status(400).send("Invalid character ID")
+                return
+            }
+            if (char.name === undefined || char.realName === undefined || char.universe === undefined) {
+                res.status(400).send("Missing character properties")
+                return
+            }
+            if (char.name.trim() === "" || char.realName.trim() === "" || char.universe.trim() === "") {
+                res.status(400).send("Character properties cannot be empty")
+                return
+            }
             let find = false
             for(let char2 of charactersList){
                 if(char.id == char2.id){
