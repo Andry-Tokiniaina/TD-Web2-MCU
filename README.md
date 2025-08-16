@@ -12,3 +12,4 @@ fonctionnalités non termiées:
   .bouton edit pour directement récupérer dans les champs les informations sur un personnage
   .la fonctionnalité de recherche
   .séparation du mode édition et du mode création
+  .mise à jour des id après suppression
