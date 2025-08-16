@@ -66,7 +66,7 @@ function Addform({update}) {
                     onClick={async()=>{
                         const data = await put(id, name, realName, universe)
                         update(data)
-                        resetForm() // facultatif si tu veux vider après un confirm aussi
+                        resetForm()
                     }}>
                     Confirm
                 </button>
