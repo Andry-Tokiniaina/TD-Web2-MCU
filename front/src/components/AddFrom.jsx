@@ -36,7 +36,6 @@ function Addform({update}) {
                 <button className="bg-red-500 p-3 rounded-md hover:bg-red-700">Cancel</button>
             </div>
         </div>
-        
     )
 }
 export default Addform;

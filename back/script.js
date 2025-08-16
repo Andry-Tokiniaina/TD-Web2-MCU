@@ -20,6 +20,46 @@ app.get("/characters", (req, res)=>{
     res.send(charactersList)
 })
 
+app.get("/characters/:id", (req, res)=>{
+    const id = Number(req.params.id)
+    const char = charactersList.find(c => c.id === id)
+    if (char) {
+        res.send(char)
+    } else {
+        res.status(404).send("Character not found")
+    }
+})
+
+app.get("/characters/name/:name", (req, res)=>{
+    const name = req.params.name
+    const char = charactersList.find(c => c.name === name)
+    if (char) {
+        res.send(char)
+    } else {
+        res.status(404).send("Character not found")
+    }
+})
+
+app.get("/characters/realName/:realName", (req, res)=>{
+    const realName = req.params.realName
+    const char = charactersList.find(c => c.realName === realName)
+    if (char) {
+        res.send(char)
+    } else {
+        res.status(404).send("Character not found")
+    }
+})
+
+app.get("/characters/universe/:universe", (req, res)=>{ 
+    const universe = req.params.universe
+    const char = charactersList.find(c => c.universe === universe)
+    if (char) {
+        res.send(char)
+    } else {
+        res.status(404).send("Character not found")
+    }
+})
+
 app.post("/characters", (req, res) => {    
     const chars = req.body?.characters;
     if (!chars) {

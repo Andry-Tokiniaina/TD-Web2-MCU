@@ -1,4 +1,3 @@
-import deleteChar from "../functions/delete";
 function Tab({characters, takeCharToDelete}) {
     return (
         <table border={1} className="bg-gray-300 w-2/3 h-3/4 gap-5 rounded-2xl overflow-y-scroll overflow-x-hidden">
