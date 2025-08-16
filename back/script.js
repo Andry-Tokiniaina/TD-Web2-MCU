@@ -77,7 +77,7 @@ app.put("/characters", (req, res)=>{
             if (!char.id) {
                 char.id = charactersList.length ? Math.max(...charactersList.map(c => c.id)) + 1 : 1;
             }
-            if (char.id < 0) {
+            if (char.id <= 0) {
                 res.status(400).send("Invalid character ID")
                 return
             }
